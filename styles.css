@@ -27,7 +27,7 @@ button{font:inherit}
 .menu-toggle{display:none;background:none;border:0;padding:9px;cursor:pointer}
 .menu-toggle span{display:block;width:25px;height:2px;background:#fff;margin:5px}
 .hero{height:min(690px,calc(100vh - 88px));min-height:570px;position:relative;isolation:isolate;overflow:hidden;background:#031326;border-bottom:1px solid rgba(36,140,229,.25)}
-.hero-background{position:absolute;inset:0;z-index:-3;background-image:url("assets/wmforge-banner.png");background-size:cover;background-position:center center}
+.hero-background{position:absolute;inset:0;z-index:-3;background-image:url("wmforge-banner.png");background-size:cover;background-position:center center}
 .hero-overlay{position:absolute;inset:0;z-index:-2;background:linear-gradient(180deg,rgba(3,14,28,.72) 0%,rgba(3,14,28,.35) 24%,rgba(3,14,28,.16) 65%,rgba(3,14,28,.62) 100%),linear-gradient(90deg,rgba(3,14,28,.92) 0%,rgba(3,14,28,.68) 31%,rgba(3,14,28,.12) 64%,rgba(3,14,28,.02) 100%)}
 .hero-content{position:relative;padding:38px clamp(24px,4.8vw,74px) 0;max-width:100%;z-index:1}
 .eyebrow,.section-label{font-size:11px;letter-spacing:2px;font-weight:800;color:#d2e5f8}
@@ -204,7 +204,7 @@ button{font:inherit}
 .video-card:hover{transform:translateY(-4px);border-color:rgba(53,181,255,.7);box-shadow:0 15px 32px rgba(0,0,0,.2)}
 .video-card[hidden]{display:none}
 .video-thumb{position:relative;isolation:isolate;display:block;overflow:hidden;aspect-ratio:16/9;margin:10px 10px 0;border:1px solid rgba(126,185,231,.32);border-radius:4px;background:#08203a;color:#fff}
-.video-thumb:before{content:"";position:absolute;inset:0;z-index:-2;background-image:linear-gradient(110deg,rgba(2,11,23,.96),rgba(5,30,54,.55) 56%,rgba(2,12,24,.65)),url("assets/wmforge-banner.png");background-size:cover,auto 210%;background-position:center,center 48%;opacity:.98;transition:transform .45s}
+.video-thumb:before{content:"";position:absolute;inset:0;z-index:-2;background-image:linear-gradient(110deg,rgba(2,11,23,.96),rgba(5,30,54,.55) 56%,rgba(2,12,24,.65)),url("wmforge-banner.png");background-size:cover,auto 210%;background-position:center,center 48%;opacity:.98;transition:transform .45s}
 .video-thumb:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,rgba(2,10,20,.58),transparent 70%);border-bottom:3px solid var(--orange)}
 .video-card:hover .video-thumb:before{transform:scale(1.06)}
 .thumb-kicker{position:absolute;left:10px;top:10px;max-width:75%;font-size:8px;letter-spacing:1.3px;font-weight:800;color:#a9d9ff}
