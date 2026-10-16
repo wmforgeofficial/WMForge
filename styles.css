@@ -427,7 +427,7 @@ button{font:inherit}
 /* Hero content: vertically centered with balanced space above and below */
 .hero-content {
   position: absolute;
-  top: 50%;
+  top: 45%;
   left: 0;
   right: 0;
   transform: translateY(-50%);
