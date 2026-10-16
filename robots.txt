@@ -1,0 +1,5 @@
+
+User-agent: *
+Allow: /
+
+Sitemap: https://wmforgeofficial.github.io/WMForge/sitemap.xml
