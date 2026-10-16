@@ -463,4 +463,82 @@ button{font:inherit}
     max-width: 560px;
     font-size: 13px;
   }
+  
+/* WMForge header spacing and size adjustment */
+.site-header {
+  height: auto;
+  min-height: 0;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  align-items: center;
+}
+
+.header-brand-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  min-width: 0;
+  flex-shrink: 0;
+}
+
+/* Slightly larger logo, aligned to the left */
+.header-poster-brand {
+  display: block;
+  line-height: 0;
+}
+
+.header-poster-brand img {
+  display: block;
+  width: 280px;
+  height: 78px;
+  object-fit: contain;
+  object-position: left center;
+  margin: 0;
+}
+
+/* Bring email closer to logo */
+.header-email {
+  display: block;
+  margin: -5px 0 0;
+  padding: 0;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+/* Keep mobile header compact */
+@media (max-width: 760px) {
+  .site-header {
+    min-height: 0;
+    padding: 5px 17px;
+    gap: 10px;
+  }
+
+  .header-brand-group {
+    gap: 0;
+    max-width: 65vw;
+  }
+
+  .header-poster-brand img {
+    width: 215px;
+    height: 62px;
+  }
+
+  .header-email {
+    margin-top: -3px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 420px) {
+  .header-poster-brand img {
+    width: 165px;
+    height: 50px;
+  }
+
+  .header-email {
+    font-size: 10px;
+  }
+}
+
 }
