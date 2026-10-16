@@ -10,7 +10,7 @@ a{color:inherit;text-decoration:none}
 button{font:inherit}
 .scroll-progress{position:fixed;z-index:1000;top:0;left:0;right:0;height:3px;background:transparent}
 .scroll-progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--blue-bright),var(--orange))}
-.site-header{position:sticky;top:0;z-index:100;height:60px;padding:0 clamp(22px,4vw,62px);display:flex;align-items:center;justify-content:space-between;gap:28px;background:rgba(3,14,28,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(18px)}
+.site-header{position:sticky;top:0;z-index:100;height:50px;padding:0 clamp(22px,4vw,62px);display:flex;align-items:center;justify-content:space-between;gap:28px;background:rgba(3,14,28,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(18px)}
 .brand{display:flex;align-items:center;gap:13px;flex-shrink:0}
 .brand img{width:59px;height:59px;object-fit:contain;border-radius:50%}
 .brand-text{display:flex;flex-direction:column;line-height:1.1}
@@ -29,7 +29,7 @@ button{font:inherit}
 .hero{height:min(690px,calc(100vh - 88px));min-height:570px;position:relative;isolation:isolate;overflow:hidden;background:#031326;border-bottom:1px solid rgba(36,140,229,.25)}
 .hero-background{position:absolute;inset:0;z-index:-3;background-image:url("wmforge-banner.png");background-size:cover;background-position:center center}
 .hero-overlay{position:absolute;inset:0;z-index:-2;background:linear-gradient(180deg,rgba(3,14,28,.72) 0%,rgba(3,14,28,.35) 24%,rgba(3,14,28,.16) 65%,rgba(3,14,28,.62) 100%),linear-gradient(90deg,rgba(3,14,28,.92) 0%,rgba(3,14,28,.68) 31%,rgba(3,14,28,.12) 64%,rgba(3,14,28,.02) 100%)}
-.hero-content{position:relative;padding:5px clamp(24px,4.8vw,74px) 0;max-width:100%;z-index:1}
+.hero-content{position:relative;padding:38px clamp(24px,4.8vw,74px) 0;max-width:100%;z-index:1}
 .eyebrow,.section-label{font-size:11px;letter-spacing:2px;font-weight:800;color:#d2e5f8}
 .eyebrow{display:flex;align-items:center;gap:10px}
 .eyebrow>span{width:8px;height:8px;background:var(--orange);border-radius:50%;box-shadow:0 0 0 5px rgba(255,121,0,.12),0 0 16px rgba(255,121,0,.65)}
@@ -131,7 +131,7 @@ button{font:inherit}
 }
 @media(max-width:760px){
  html{scroll-padding-top:76px}
- .site-header{height:50px;padding:0 17px;gap:10px}
+ .site-header{height: 50px;padding:0 17px;gap:10px}
  .brand{gap:9px}.brand img{width:47px;height:47px}.brand-text strong{font-size:24px}.brand-text small{font-size:7px;letter-spacing:1.15px;margin-top:6px}
  .menu-toggle{display:block}
  .main-nav{position:absolute;top:73px;left:0;right:0;display:flex;flex-direction:column;align-items:stretch;gap:0;padding:12px 20px 20px;background:rgba(3,14,28,.99);border-bottom:1px solid var(--line);opacity:0;visibility:hidden;transform:translateY(-8px);transition:.22s}
@@ -328,7 +328,7 @@ button{font:inherit}
 
 
 /* Header and footer logo/email update */
-.site-header{height:auto;min-height:112px;padding-top:12px;padding-bottom:12px;align-items:center}
+.site-header{height:auto;min-height:80px;padding-top:12px;padding-bottom:12px;align-items:center}
 .header-brand-group{display:flex;flex-direction:column;align-items:flex-start;gap:4px;flex-shrink:0;min-width:0}
 .header-poster-brand{display:block;line-height:0}
 .header-poster-brand img{display:block;width:210px;height:76px;object-fit:contain;object-position:left center;border-radius:0}
@@ -341,7 +341,7 @@ button{font:inherit}
 .footer-email span{display:none}
 .footer-email:hover{color:var(--orange);border-color:transparent}
 @media(max-width:760px){
- .site-header{min-height:100px;padding:10px 17px;gap:10px;align-items:center}
+ .site-header{min-height:70px;padding:10px 17px;gap:10px;align-items:center}
  .header-poster-brand img{width:150px;height:58px}
  .header-email{font-size:10px;max-width:165px}
  .footer-brand img{width:160px;height:74px}
@@ -362,7 +362,7 @@ button{font:inherit}
 .footer-email{display:none!important}
 .footer-bottom{margin-top:0;padding-top:15px}
 @media(max-width:760px){
- .site-header{height:auto;min-height:84px;align-items:center}
+ .site-header{height:auto;min-height:50px;align-items:center}
  .header-brand-group{gap:2px;max-width:58vw}
  .header-poster-brand img{width:165px;height:60px}
  .header-email{font-size:12px;line-height:1.25}
@@ -427,7 +427,7 @@ button{font:inherit}
 /* Hero content: vertically centered with balanced space above and below */
 .hero-content {
   position: absolute;
-  top: 45%;
+  top: 50%;
   left: 0;
   right: 0;
   transform: translateY(-50%);
@@ -463,82 +463,81 @@ button{font:inherit}
     max-width: 560px;
     font-size: 13px;
   }
-  
-/* WMForge header spacing and size adjustment */
+}
+
+/* WMForge compact header — final override */
 .site-header {
-  height: auto;
-  min-height: 0;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  align-items: center;
+  height: 100px !important;
+  min-height: 100px !important;
+  padding: 4px clamp(22px, 4vw, 62px) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 16px !important;
+  box-sizing: border-box !important;
+  overflow: visible;
 }
-
 .header-brand-group {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0;
-  min-width: 0;
-  flex-shrink: 0;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  justify-content: center !important;
+  gap: 0 !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 1 !important;
 }
-
-/* Slightly larger logo, aligned to the left */
 .header-poster-brand {
-  display: block;
-  line-height: 0;
+  display: block !important;
+  flex: 0 0 auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 0 !important;
 }
-
 .header-poster-brand img {
-  display: block;
-  width: 280px;
-  height: 78px;
-  object-fit: contain;
-  object-position: left center;
-  margin: 0;
+  display: block !important;
+  width: 250px !important;
+  height: 64px !important;
+  max-height: 64px !important;
+  object-fit: contain !important;
+  object-position: left center !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
 }
-
-/* Bring email closer to logo */
 .header-email {
-  display: block;
-  margin: -5px 0 0;
-  padding: 0;
-  font-size: 14px;
-  line-height: 1.2;
+  display: block !important;
+  margin: -5px 0 0 !important;
+  padding: 0 !important;
+  font-size: 12px !important;
+  line-height: 15px !important;
+  font-weight: 600 !important;
+  max-width: 100% !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  white-space: nowrap;
 }
-
-/* Keep mobile header compact */
 @media (max-width: 760px) {
   .site-header {
-    min-height: 0;
-    padding: 5px 17px;
-    gap: 10px;
+    height: 88px !important;
+    min-height: 88px !important;
+    padding: 3px 17px !important;
+    gap: 8px !important;
   }
-
-  .header-brand-group {
-    gap: 0;
-    max-width: 65vw;
-  }
-
+  .header-brand-group { max-width: 65vw !important; }
   .header-poster-brand img {
-    width: 215px;
-    height: 62px;
+    width: 195px !important;
+    height: 54px !important;
+    max-height: 54px !important;
   }
-
-  .header-email {
-    margin-top: -3px;
-    font-size: 11px;
-  }
+  .header-email { margin-top: -3px !important; font-size: 10px !important; line-height: 13px !important; }
 }
-
 @media (max-width: 420px) {
-  .header-poster-brand img {
-    width: 165px;
-    height: 50px;
-  }
-
-  .header-email {
-    font-size: 10px;
-  }
-}
-
+  .site-header { height: 78px !important; min-height: 78px !important; padding: 3px 12px !important; }
+  .header-poster-brand img { width: 155px !important; height: 46px !important; max-height: 46px !important; }
+  .header-email { font-size: 9px !important; line-height: 12px !important; }
 }
