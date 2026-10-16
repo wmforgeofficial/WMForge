@@ -497,9 +497,9 @@ button{font:inherit}
 }
 .header-poster-brand img {
   display: block !important;
-  width: 250px !important;
-  height: 64px !important;
-  max-height: 64px !important;
+  width: 300px !important;
+  height: 78px !important;
+  max-height: 78px !important;
   object-fit: contain !important;
   object-position: left center !important;
   margin: 0 !important;
