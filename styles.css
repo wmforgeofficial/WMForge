@@ -328,7 +328,7 @@ button{font:inherit}
 
 
 /* Header and footer logo/email update */
-.site-header{height:auto;min-height:80px;padding-top:12px;padding-bottom:12px;align-items:center}
+.site-header{height:auto;min-height:80px;padding-top:8px;padding-bottom:8px;align-items:center}
 .header-brand-group{display:flex;flex-direction:column;align-items:flex-start;gap:4px;flex-shrink:0;min-width:0}
 .header-poster-brand{display:block;line-height:0}
 .header-poster-brand img{display:block;width:210px;height:76px;object-fit:contain;object-position:left center;border-radius:0}
