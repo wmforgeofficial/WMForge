@@ -1156,4 +1156,13 @@ body { background:#f3f6f9; color:var(--wf-ink); }
 }
 @media (prefers-reduced-motion:reduce) {
   .hero-benefit,.hero-explore,.resources-section .resource-item { transition:none !important; }
+  .header-email,
+.header-email:visited {
+    color: #ffffff !important;
+}
+
+.header-email:hover,
+.header-email:focus {
+    color: #ff7900 !important;
+}
 }
