@@ -786,7 +786,7 @@ body { background:#f3f6f9; color:var(--wf-ink); }
   color: #ffffff !important;
   font-size: 15px !important;
   line-height: 9px !important;
-  margin: -6px 0 0 5px !important;
+  margin: -9px 0 0 5px !important;
 }
 .main-nav { color:#142d4e !important; gap:clamp(12px,1.8vw,24px) !important; }
 .main-nav > a:not(.nav-button) {
