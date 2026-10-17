@@ -355,7 +355,8 @@ button{font:inherit}
 .header-poster-brand{display:block;line-height:0}
 .header-poster-brand img{display:block;width:210px;height:76px;object-fit:contain;object-position:left center;border:0;border-radius:0}
 .header-email{display:block;margin:0;padding:0;font-size:15px;line-height:1.25;font-weight:600;color:#d6e7f8;text-decoration:none;border:0;border-radius:0;background:transparent;box-shadow:none;overflow-wrap:anywhere}
-.header-email:hover{color:var(--orange)}
+.header-email:hover{color: #ff7900 !important;
+}
 .footer-main{display:flex;flex-direction:row;align-items:flex-start;justify-content:flex-start;gap:0;padding-bottom:16px}
 .footer-brand{display:block;flex:0 0 auto;line-height:0}
 .footer-brand img{display:block;width:240px;height:112px;object-fit:contain;object-position:left center;border:0;border-radius:0}
