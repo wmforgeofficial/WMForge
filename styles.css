@@ -1200,7 +1200,7 @@ body { background:#f3f6f9; color:var(--wf-ink); }
   grid-template-columns: minmax(250px, .82fr) minmax(0, 1.18fr) !important;
   gap: clamp(22px, 3.2vw, 42px) !important;
   align-items: center !important;
-  margin-top: 18px !important;
+  margin-top: 26px !important;
 }
 .about-section .about-statement {
   position: relative !important;
@@ -1347,4 +1347,10 @@ body { background:#f3f6f9; color:var(--wf-ink); }
   .about-section .about-statement { height: 178px !important; min-height: 178px !important; }
   .about-section .about-copy { max-width: none !important; }
   .about-section .about-copy p { font-size: 13px !important; }
+
+  /* Increase About section height */
+.about-section {
+  padding-top: 55px !important;
+  padding-bottom: 55px !important;
+}
 }
