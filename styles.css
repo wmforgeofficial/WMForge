@@ -1200,7 +1200,7 @@ body { background:#f3f6f9; color:var(--wf-ink); }
   grid-template-columns: minmax(250px, .82fr) minmax(0, 1.18fr) !important;
   gap: clamp(22px, 3.2vw, 42px) !important;
   align-items: center !important;
-  margin-top: 26px !important;
+  margin-top: 18px !important;
 }
 .about-section .about-statement {
   position: relative !important;
@@ -1347,10 +1347,82 @@ body { background:#f3f6f9; color:var(--wf-ink); }
   .about-section .about-statement { height: 178px !important; min-height: 178px !important; }
   .about-section .about-copy { max-width: none !important; }
   .about-section .about-copy p { font-size: 13px !important; }
-
-  /* Increase About section height */
-.about-section {
-  padding-top: 55px !important;
-  padding-bottom: 55px !important;
 }
+
+/* Free download rows: match the light frosted-glass resource card */
+.resources-section .free-ppt-list {
+  background: rgba(248, 250, 253, .62) !important;
+  border: 1px solid rgba(255, 255, 255, .78) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 12px 30px rgba(8, 31, 59, .10) !important;
+  backdrop-filter: blur(16px) saturate(125%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(125%) !important;
+  padding: 8px 14px 16px !important;
+  margin: -8px 0 22px !important;
+}
+.resources-section .free-ppt-row {
+  background: rgba(248, 250, 253, .72) !important;
+  border: 1px solid rgba(255, 255, 255, .82) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 5px 16px rgba(8, 31, 59, .08) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  padding: 14px 12px !important;
+}
+.resources-section .free-ppt-file-icon {
+  background: rgba(255, 255, 255, .68) !important;
+  border-color: rgba(116, 157, 198, .38) !important;
+  color: #087fda !important;
+}
+.resources-section .free-ppt-copy h4 {
+  color: #0a2345 !important;
+}
+.resources-section .free-ppt-copy p {
+  color: #355171 !important;
+}
+.resources-section .free-ppt-download {
+  color: #ffffff !important;
+  background: #0b294b !important;
+  border: 1px solid #0b294b !important;
+  border-radius: 6px !important;
+}
+.resources-section .free-ppt-download span {
+  color: #ff7900 !important;
+}
+.resources-section .free-ppt-download:hover {
+  background: #12385f !important;
+  border-color: #ff7900 !important;
+}
+@media (max-width: 760px) {
+  .resources-section .free-ppt-list { padding: 7px 8px 14px !important; }
+  .resources-section .free-ppt-row { padding: 13px 10px !important; }
+}
+
+/* About section: fill the visible space and give the warehouse card more height.
+   The existing About background image and overlay are intentionally untouched. */
+@media (min-width: 761px) {
+  .about-section {
+    min-height: calc(100vh - 100px) !important;
+    padding-top: 48px !important;
+    padding-bottom: 58px !important;
+  }
+  .about-section .about-statement {
+    height: 220px !important;
+    min-height: 220px !important;
+  }
+  .about-section .statement-mark {
+    height: 100% !important;
+  }
+}
+@media (max-width: 760px) {
+  .about-section {
+    min-height: 0 !important;
+  }
+  .about-section .about-statement {
+    height: 205px !important;
+    min-height: 205px !important;
+  }
+  .about-section .statement-mark {
+    height: 100% !important;
+  }
 }
