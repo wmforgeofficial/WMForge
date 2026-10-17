@@ -521,6 +521,10 @@ button{font:inherit}
   box-shadow: none !important;
   white-space: nowrap;
 }
+/* Move header email slightly to the right */
+.site-header .header-email {
+  margin-left: 5px !important;
+}
 @media (max-width: 760px) {
   .site-header {
     height: 75px !important;
