@@ -1079,7 +1079,7 @@ body { background:#f3f6f9; color:var(--wf-ink); }
   background-size:cover !important;
   background-position:center 58% !important;
   border-top:1px solid rgba(255,255,255,.15) !important;
-  padding:34px clamp(24px,5vw,74px) 24px !important;
+  padding:0px clamp(24px,5vw,74px) 0px !important;
 }
 .site-footer::before {
   content:""; position:absolute; inset:0; z-index:-1; pointer-events:none;
