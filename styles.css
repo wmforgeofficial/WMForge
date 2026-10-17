@@ -511,7 +511,7 @@ button{font:inherit}
   display: block !important;
   margin: -5px 0 0 !important;
   padding: 0 !important;
-  font-size: 12px !important;
+  font-size: 16px !important;
   line-height: 15px !important;
   font-weight: 600 !important;
   max-width: 100% !important;
@@ -523,8 +523,8 @@ button{font:inherit}
 }
 @media (max-width: 760px) {
   .site-header {
-    height: 88px !important;
-    min-height: 88px !important;
+    height: 75px !important;
+    min-height: 75px !important;
     padding: 3px 17px !important;
     gap: 8px !important;
   }
@@ -534,10 +534,10 @@ button{font:inherit}
     height: 54px !important;
     max-height: 54px !important;
   }
-  .header-email { margin-top: -3px !important; font-size: 10px !important; line-height: 13px !important; }
+  .header-email { margin-top: -3px !important; font-size: 12px !important; line-height: 13px !important; }
 }
 @media (max-width: 420px) {
   .site-header { height: 78px !important; min-height: 78px !important; padding: 3px 12px !important; }
   .header-poster-brand img { width: 155px !important; height: 46px !important; max-height: 46px !important; }
-  .header-email { font-size: 9px !important; line-height: 12px !important; }
+  .header-email { font-size: 11px !important; line-height: 12px !important; }
 }
