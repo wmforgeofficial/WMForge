@@ -772,7 +772,7 @@ body { background:#f3f6f9; color:var(--wf-ink); }
   min-height: 88px !important;
   height: 88px !important;
   padding: 5px clamp(22px, 4vw, 62px) !important;
-  background: rgba(6, 23, 45, 0.10) !important;
+  background: rgba(6, 23, 45, 0.5) !important;
   border-bottom: 1px solid rgba(12,42,76,.12) !important;
   box-shadow: 0 5px 24px rgba(9,35,68,.06);
   backdrop-filter: blur(18px);
@@ -790,14 +790,14 @@ body { background:#f3f6f9; color:var(--wf-ink); }
 }
 .main-nav { color:#142d4e !important; gap:clamp(12px,1.8vw,24px) !important; }
 .main-nav > a:not(.nav-button) {
-  color:#132d4f !important;
+  color: #ffffff !important;
   border-color:transparent !important;
   background:transparent !important;
   box-shadow:none !important;
   border-radius:7px !important;
 }
 .main-nav > a:not(.nav-button):hover {
-  color:var(--wf-orange) !important;
+  color:color: #ff7900 !important;
   background:rgba(255,255,255,.7) !important;
   border-color:rgba(249, 251, 253, 0.75) !important;
 }
