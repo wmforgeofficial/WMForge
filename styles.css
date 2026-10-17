@@ -771,7 +771,7 @@ body { background:#f3f6f9; color:var(--wf-ink); }
   min-height: 88px !important;
   height: 88px !important;
   padding: 5px clamp(22px, 4vw, 62px) !important;
-  background: rgba(13, 110, 253, 0.12) !important;
+  background: rgba(6, 23, 45, 0.10) !important;
   border-bottom: 1px solid rgba(12,42,76,.12) !important;
   box-shadow: 0 5px 24px rgba(9,35,68,.06);
   backdrop-filter: blur(18px);
