@@ -1294,3 +1294,57 @@ body { background:#f3f6f9; color:var(--wf-ink); }
   .about-section .about-statement { height: 150px !important; max-width: 100% !important; }
   .about-section .about-copy p { font-size: 13px !important; }
 }
+
+
+/* About section final tuning: increase content height and restore photo card/text wrapping.
+   The existing section background image and its overlay are intentionally unchanged. */
+.about-section {
+  padding-top: 48px !important;
+  padding-bottom: 48px !important;
+}
+.about-section .about-layout {
+  margin-top: 24px !important;
+  grid-template-columns: minmax(300px, .82fr) minmax(0, 1.18fr) !important;
+  gap: clamp(28px, 4vw, 52px) !important;
+  align-items: center !important;
+}
+.about-section .about-statement {
+  height: 178px !important;
+  min-height: 178px !important;
+}
+.about-section .statement-mark {
+  height: 100% !important;
+}
+.about-section .statement-mark img {
+  object-fit: cover !important;
+  object-position: center 52% !important;
+}
+.about-section .about-statement::before {
+  inset: 42% 0 0 !important;
+  background: linear-gradient(0deg, rgba(2,12,25,.96) 0%, rgba(2,12,25,.66) 55%, transparent 100%) !important;
+}
+.about-section .about-statement p {
+  padding: 12px 13px 11px !important;
+  font-size: clamp(13px, 1.2vw, 16px) !important;
+  line-height: 1.35 !important;
+}
+.about-section .about-copy {
+  max-width: 560px !important;
+}
+.about-section .about-copy p {
+  font-size: 12px !important;
+  line-height: 1.65 !important;
+  margin-bottom: 12px !important;
+  text-shadow: 0 1px 3px rgba(0,0,0,.25) !important;
+}
+.about-section .inline-link {
+  font-size: 12px !important;
+  margin-top: 2px !important;
+}
+@media (max-width: 760px) {
+  .about-section { padding-top: 38px !important; padding-bottom: 38px !important; }
+  .about-section .about-layout { grid-template-columns: 1fr !important; gap: 18px !important; }
+  .about-section .about-statement { height: 178px !important; min-height: 178px !important; }
+  .about-section .about-copy { max-width: none !important; }
+  .about-section .about-copy p { font-size: 13px !important; }
+}
