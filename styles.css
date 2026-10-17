@@ -778,13 +778,13 @@ body { background:#f3f6f9; color:var(--wf-ink); }
   backdrop-filter: blur(18px);
 }
 .header-poster-brand img {
-  width: 270px !important;
-  height: 66px !important;
-  max-height: 66px !important;
+  width: 320px !important;
+  height: 80px !important;
+  max-height: 80px !important;
 }
 .header-email {
   color: #ffffff !important;
-  font-size: 12px !important;
+  font-size: 15px !important;
   line-height: 14px !important;
   margin: -2px 0 0 5px !important;
 }
