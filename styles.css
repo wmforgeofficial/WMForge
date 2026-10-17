@@ -797,7 +797,7 @@ body { background:#f3f6f9; color:var(--wf-ink); }
   border-radius:7px !important;
 }
 .main-nav > a:not(.nav-button):hover {
-  color:color: #ff7900 !important;
+  color: #ff7900 !important;
   background:rgba(255,255,255,.7) !important;
   border-color:rgba(249, 251, 253, 0.75) !important;
 }
