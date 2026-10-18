@@ -50,6 +50,7 @@
 
  
 
+
 const progress = $("#scrollProgress");
 const backToTop = $("#backToTop");
 const siteHeader = document.querySelector(".site-header");
@@ -73,12 +74,10 @@ const updateScrollUI = () => {
   }
 
   if (siteHeader) {
-    if (currentScrollY <= 10) {
-      siteHeader.classList.remove("header-hidden");
+    if (currentScrollY <= 70 || currentScrollY < lastScrollY) {
+      siteHeader.classList.remove("site-header--hidden");
     } else if (currentScrollY > lastScrollY) {
-      siteHeader.classList.add("header-hidden");
-    } else if (currentScrollY < lastScrollY) {
-      siteHeader.classList.remove("header-hidden");
+      siteHeader.classList.add("site-header--hidden");
     }
   }
 
@@ -86,19 +85,12 @@ const updateScrollUI = () => {
   scrollTicking = false;
 };
 
-const handleScroll = () => {
+window.addEventListener("scroll", () => {
   if (!scrollTicking) {
     window.requestAnimationFrame(updateScrollUI);
     scrollTicking = true;
   }
-};
-
-window.addEventListener("scroll", handleScroll, { passive: true });
-
-document.addEventListener("scroll", handleScroll, {
-  passive: true,
-  capture: true
-});
+}, { passive: true });
 
 updateScrollUI();
 
