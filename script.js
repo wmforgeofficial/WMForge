@@ -49,45 +49,59 @@
   }
 
  
+
 const progress = $("#scrollProgress");
 const backToTop = $("#backToTop");
-const siteHeader = $(".site-header");
+const siteHeader = document.querySelector(".site-header");
+
 let scrollTicking = false;
 let lastScrollY = window.scrollY;
 
 const updateScrollUI = () => {
   const currentScrollY = window.scrollY;
-  const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-  const percent = maxScroll > 0 ? (currentScrollY / maxScroll) * 100 : 0;
+  const maxScroll =
+    document.documentElement.scrollHeight - window.innerHeight;
+  const percent =
+    maxScroll > 0 ? (currentScrollY / maxScroll) * 100 : 0;
 
-  if (progress) progress.style.width = `${Math.min(100, Math.max(0, percent))}%`;
-  if (backToTop) backToTop.classList.toggle("visible", currentScrollY > 420);
-
-  
-if (siteHeader) {
-  if (currentScrollY <= 10) {
-    siteHeader.classList.remove("header-hidden");
-  } else if (currentScrollY > lastScrollY) {
-    siteHeader.classList.add("header-hidden");
-  } else if (currentScrollY < lastScrollY) {
-    siteHeader.classList.remove("header-hidden");
+  if (progress) {
+    progress.style.width = `${Math.min(100, Math.max(0, percent))}%`;
   }
-}
 
+  if (backToTop) {
+    backToTop.classList.toggle("visible", currentScrollY > 420);
+  }
+
+  if (siteHeader) {
+    if (currentScrollY <= 10) {
+      siteHeader.classList.remove("header-hidden");
+    } else if (currentScrollY > lastScrollY) {
+      siteHeader.classList.add("header-hidden");
+    } else if (currentScrollY < lastScrollY) {
+      siteHeader.classList.remove("header-hidden");
+    }
+  }
 
   lastScrollY = currentScrollY;
   scrollTicking = false;
 };
 
+const handleScroll = () => {
+  if (!scrollTicking) {
+    window.requestAnimationFrame(updateScrollUI);
+    scrollTicking = true;
+  }
+};
 
-  window.addEventListener("scroll", () => {
-    if (!scrollTicking) {
-      window.requestAnimationFrame(updateScrollUI);
-      scrollTicking = true;
-    }
-  }, { passive: true });
+window.addEventListener("scroll", handleScroll, { passive: true });
 
-  updateScrollUI();
+document.addEventListener("scroll", handleScroll, {
+  passive: true,
+  capture: true
+});
+
+updateScrollUI();
+
 
   if (backToTop) {
     backToTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
