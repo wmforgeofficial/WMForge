@@ -48,19 +48,35 @@
     revealItems.forEach(item => item.classList.add("is-visible"));
   }
 
-  const progress = $("#scrollProgress");
-  const backToTop = $("#backToTop");
-  let scrollTicking = false;
+ 
+const progress = $("#scrollProgress");
+const backToTop = $("#backToTop");
+const siteHeader = $(".site-header");
+let scrollTicking = false;
+let lastScrollY = window.scrollY;
 
-  const updateScrollUI = () => {
-    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-    const percent = maxScroll > 0 ? (window.scrollY / maxScroll) * 100 : 0;
+const updateScrollUI = () => {
+  const currentScrollY = window.scrollY;
+  const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+  const percent = maxScroll > 0 ? (currentScrollY / maxScroll) * 100 : 0;
 
-    if (progress) progress.style.width = `${Math.min(100, Math.max(0, percent))}%`;
-    if (backToTop) backToTop.classList.toggle("visible", window.scrollY > 420);
+  if (progress) progress.style.width = `${Math.min(100, Math.max(0, percent))}%`;
+  if (backToTop) backToTop.classList.toggle("visible", currentScrollY > 420);
 
-    scrollTicking = false;
-  };
+  if (siteHeader) {
+    if (currentScrollY <= 10) {
+      siteHeader.classList.remove("header-hidden");
+    } else if (currentScrollY > lastScrollY + 5) {
+      siteHeader.classList.add("header-hidden");
+    } else if (currentScrollY < lastScrollY - 5) {
+      siteHeader.classList.remove("header-hidden");
+    }
+  }
+
+  lastScrollY = currentScrollY;
+  scrollTicking = false;
+};
+
 
   window.addEventListener("scroll", () => {
     if (!scrollTicking) {
