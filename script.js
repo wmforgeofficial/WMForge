@@ -119,8 +119,8 @@ updateScrollUI();
     });
   }
 
-  // Video library: two independent marquee rows. Original cards remain the source
-  // of truth for search/filtering; the second group is decorative visual duplication.
+  // Video library: two independent continuous marquee rows.
+  // Original cards remain the source of truth for search and filtering.
   const videoGrid = $("#videoGrid");
   const videoCards = $$(".video-card", videoGrid || document);
   const videoFilters = $$(".video-filter");
@@ -137,15 +137,21 @@ updateScrollUI();
 
       const row = document.createElement("div");
       row.className = `video-marquee-row video-marquee-row-${rowIndex + 1}`;
+      row.setAttribute("aria-label", rowIndex === 0 ? "Videos 1 to 5" : "Videos 6 to 10");
+
       const track = document.createElement("div");
       track.className = "video-marquee-track";
 
+      // Two equal groups let the track loop by exactly half its total width.
       [false, true].forEach(isCloneGroup => {
         const group = document.createElement("div");
         group.className = "video-marquee-group";
+        if (isCloneGroup) group.setAttribute("aria-hidden", "true");
 
         cards.forEach(card => {
           if (!isCloneGroup) {
+            // The moving cards should not remain subject to reveal transforms.
+            card.classList.remove("reveal", "is-visible");
             group.appendChild(card);
           } else {
             const clone = card.cloneNode(true);
@@ -183,9 +189,10 @@ updateScrollUI();
       if (visible) visibleCount += 1;
     });
 
+    // Clones are visible only in marquee mode; filtered results use originals only.
     if (videoGrid) {
       videoGrid.querySelectorAll(".video-card-clone").forEach(card => {
-        card.hidden = true;
+        card.hidden = isFiltered;
       });
     }
     if (videoEmpty) videoEmpty.hidden = visibleCount > 0;
