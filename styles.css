@@ -1425,7 +1425,7 @@ body { background:#f3f6f9; color:var(--wf-ink); }
   .about-section .statement-mark {
     height: 100% !important;
   }
-  
+}
 /* Hide header while scrolling down; reveal when scrolling up */
 
 .site-header {
