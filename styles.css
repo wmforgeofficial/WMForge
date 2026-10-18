@@ -1578,3 +1578,37 @@ body { background:#f3f6f9; color:var(--wf-ink); }
   }
 }
 
+/* Learning Resources — improve background and text visibility */
+.resources-section {
+  position: relative;
+  isolation: isolate;
+  background-color: #eaf1f8;
+}
+
+.resources-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.72) 0%,
+    rgba(255, 255, 255, 0.58) 55%,
+    rgba(255, 255, 255, 0.38) 100%
+  );
+  pointer-events: none;
+}
+
+/* Keep resource content above the overlay */
+.resources-section > * {
+  position: relative;
+}
+
+/* Make the resource card easier to read */
+.resources-section .resource-card {
+  background: rgba(255, 255, 255, 0.88);
+  border-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
