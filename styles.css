@@ -1551,4 +1551,30 @@ body { background:#f3f6f9; color:var(--wf-ink); }
   .videos-section #videoGrid.video-grid:not(.video-grid--filtered) .video-marquee-group { display: contents; }
   .videos-section #videoGrid.video-grid:not(.video-grid--filtered) .video-card-clone { display: none !important; }
   .videos-section #videoGrid.video-grid:not(.video-grid--filtered) .video-card:not(.video-card-clone) { width: auto; flex: initial; }
+
 }
+
+/* Full-width moving video rows only — keep heading and toolbar unchanged */
+@media (min-width: 761px) {
+  .videos-section #videoGrid.video-grid:not(.video-grid--filtered) {
+    width: calc(100% + clamp(48px, 14vw, 212px));
+    max-width: none;
+    margin-left: calc(0px - clamp(24px, 7vw, 106px));
+  }
+}
+
+@media (max-width: 760px) {
+  .videos-section #videoGrid.video-grid:not(.video-grid--filtered) {
+    width: calc(100% + 44px);
+    max-width: none;
+    margin-left: -22px;
+  }
+}
+
+@media (max-width: 600px) {
+  .videos-section #videoGrid.video-grid:not(.video-grid--filtered) {
+    width: calc(100% + 34px);
+    margin-left: -17px;
+  }
+}
+
