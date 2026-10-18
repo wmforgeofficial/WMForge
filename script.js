@@ -119,7 +119,8 @@ updateScrollUI();
     });
   }
 
-  // Video library: two independently moving rows, while retaining original cards for search/filtering.
+  // Video library: two independent marquee rows. Original cards remain the source
+  // of truth for search/filtering; the second group is decorative visual duplication.
   const videoGrid = $("#videoGrid");
   const videoCards = $$(".video-card", videoGrid || document);
   const videoFilters = $$(".video-filter");
@@ -127,8 +128,6 @@ updateScrollUI();
   const videoEmpty = $("#videoEmpty");
   let activeVideoFilter = "all";
 
-  // Build two marquee rows from the existing cards. The cloned cards are visual-only
-  // and are excluded from filtering counts and keyboard navigation.
   if (videoGrid && videoCards.length > 0 && !videoGrid.querySelector(".video-marquee-row")) {
     const midpoint = Math.ceil(videoCards.length / 2);
     const rows = [videoCards.slice(0, midpoint), videoCards.slice(midpoint)];
@@ -138,21 +137,30 @@ updateScrollUI();
 
       const row = document.createElement("div");
       row.className = `video-marquee-row video-marquee-row-${rowIndex + 1}`;
-
       const track = document.createElement("div");
       track.className = "video-marquee-track";
 
-      cards.forEach(card => track.appendChild(card));
-      cards.forEach(card => {
-        const clone = card.cloneNode(true);
-        clone.classList.remove("reveal", "is-visible");
-        clone.classList.add("video-card-clone");
-        clone.removeAttribute("id");
-        clone.setAttribute("aria-hidden", "true");
-        clone.querySelectorAll("a, button, input, select, textarea, [tabindex]").forEach(el => {
-          el.setAttribute("tabindex", "-1");
+      [false, true].forEach(isCloneGroup => {
+        const group = document.createElement("div");
+        group.className = "video-marquee-group";
+
+        cards.forEach(card => {
+          if (!isCloneGroup) {
+            group.appendChild(card);
+          } else {
+            const clone = card.cloneNode(true);
+            clone.classList.remove("reveal", "is-visible");
+            clone.classList.add("video-card-clone");
+            clone.removeAttribute("id");
+            clone.setAttribute("aria-hidden", "true");
+            clone.querySelectorAll("a, button, input, select, textarea, [tabindex]").forEach(el => {
+              el.setAttribute("tabindex", "-1");
+            });
+            group.appendChild(clone);
+          }
         });
-        track.appendChild(clone);
+
+        track.appendChild(group);
       });
 
       row.appendChild(track);
@@ -168,25 +176,18 @@ updateScrollUI();
     if (videoGrid) videoGrid.classList.toggle("video-grid--filtered", isFiltered);
 
     videoCards.forEach(card => {
-      const matchesCategory =
-        activeVideoFilter === "all" ||
-        card.dataset.category === activeVideoFilter;
-      const matchesSearch =
-        !query ||
-        (card.dataset.title || "").toLowerCase().includes(query);
+      const matchesCategory = activeVideoFilter === "all" || card.dataset.category === activeVideoFilter;
+      const matchesSearch = !query || (card.dataset.title || "").toLowerCase().includes(query);
       const visible = matchesCategory && matchesSearch;
       card.hidden = !visible;
       if (visible) visibleCount += 1;
     });
 
-    // Keep the duplicated visual cards in sync. In filtered mode they are hidden,
-    // and the original cards return to a normal responsive grid.
     if (videoGrid) {
       videoGrid.querySelectorAll(".video-card-clone").forEach(card => {
         card.hidden = true;
       });
     }
-
     if (videoEmpty) videoEmpty.hidden = visibleCount > 0;
   };
 
