@@ -818,8 +818,8 @@ body { background:#f3f6f9; color:var(--wf-ink); }
 }
 .hero-overlay {
   background:
-    linear-gradient(90deg, rgba(250,252,254,.96) 0%, rgba(250,252,254,.91) 34%, rgba(250,252,254,.53) 55%, rgba(250,252,254,.05) 82%),
-    linear-gradient(180deg, rgba(250,252,254,.10), rgba(230,239,248,.20)) !important;
+    linear-gradient(90deg, rgba(250,252,254,.82) 0%, rgba(250,252,254,.72) 34%, rgba(250,252,254,.38) 55%, rgba(250,252,254,.03) 82%),
+    linear-gradient(180deg, rgba(250,252,254,.06), rgba(230,239,248,.14)) !important;
 }
 .hero-content {
   top:50% !important;
