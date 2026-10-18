@@ -1431,9 +1431,13 @@ body { background:#f3f6f9; color:var(--wf-ink); }
   transition: transform 0.3s ease !important;
 }
 
+
 .site-header.header-hidden {
-  transform: translateY(-100%) !important;
+  transform: translateY(-110%) !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
 }
+
 
 @media (prefers-reduced-motion: reduce) {
   .site-header {
