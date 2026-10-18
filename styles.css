@@ -1427,16 +1427,15 @@ body { background:#f3f6f9; color:var(--wf-ink); }
   }
   
 /* Hide header while scrolling down; reveal when scrolling up */
+
 .site-header {
-  transition: transform 0.3s ease !important;
+  transition: transform 0.3s ease-in-out !important;
 }
 
-
-.site-header.header-hidden {
+.site-header.site-header--hidden {
   transform: translateY(-110%) !important;
-  visibility: hidden !important;
-  pointer-events: none !important;
 }
+
 
 
 @media (prefers-reduced-motion: reduce) {
