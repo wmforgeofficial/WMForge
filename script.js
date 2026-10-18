@@ -119,31 +119,73 @@ updateScrollUI();
     });
   }
 
-  // Video library filters and search
-  const videoCards = $$(".video-card");
+  // Video library: two independently moving rows, while retaining original cards for search/filtering.
+  const videoGrid = $("#videoGrid");
+  const videoCards = $$(".video-card", videoGrid || document);
   const videoFilters = $$(".video-filter");
   const videoSearch = $("#videoSearch");
   const videoEmpty = $("#videoEmpty");
   let activeVideoFilter = "all";
 
+  // Build two marquee rows from the existing cards. The cloned cards are visual-only
+  // and are excluded from filtering counts and keyboard navigation.
+  if (videoGrid && videoCards.length > 0 && !videoGrid.querySelector(".video-marquee-row")) {
+    const midpoint = Math.ceil(videoCards.length / 2);
+    const rows = [videoCards.slice(0, midpoint), videoCards.slice(midpoint)];
+
+    rows.forEach((cards, rowIndex) => {
+      if (!cards.length) return;
+
+      const row = document.createElement("div");
+      row.className = `video-marquee-row video-marquee-row-${rowIndex + 1}`;
+
+      const track = document.createElement("div");
+      track.className = "video-marquee-track";
+
+      cards.forEach(card => track.appendChild(card));
+      cards.forEach(card => {
+        const clone = card.cloneNode(true);
+        clone.classList.remove("reveal", "is-visible");
+        clone.classList.add("video-card-clone");
+        clone.removeAttribute("id");
+        clone.setAttribute("aria-hidden", "true");
+        clone.querySelectorAll("a, button, input, select, textarea, [tabindex]").forEach(el => {
+          el.setAttribute("tabindex", "-1");
+        });
+        track.appendChild(clone);
+      });
+
+      row.appendChild(track);
+      videoGrid.appendChild(row);
+    });
+  }
+
   const applyVideoFilters = () => {
     const query = videoSearch ? videoSearch.value.trim().toLowerCase() : "";
     let visibleCount = 0;
+    const isFiltered = activeVideoFilter !== "all" || query.length > 0;
+
+    if (videoGrid) videoGrid.classList.toggle("video-grid--filtered", isFiltered);
 
     videoCards.forEach(card => {
       const matchesCategory =
         activeVideoFilter === "all" ||
         card.dataset.category === activeVideoFilter;
-
       const matchesSearch =
         !query ||
         (card.dataset.title || "").toLowerCase().includes(query);
-
       const visible = matchesCategory && matchesSearch;
       card.hidden = !visible;
-
       if (visible) visibleCount += 1;
     });
+
+    // Keep the duplicated visual cards in sync. In filtered mode they are hidden,
+    // and the original cards return to a normal responsive grid.
+    if (videoGrid) {
+      videoGrid.querySelectorAll(".video-card-clone").forEach(card => {
+        card.hidden = true;
+      });
+    }
 
     if (videoEmpty) videoEmpty.hidden = visibleCount > 0;
   };
@@ -151,18 +193,17 @@ updateScrollUI();
   videoFilters.forEach(button => {
     button.addEventListener("click", () => {
       activeVideoFilter = button.dataset.videoFilter || "all";
-
       videoFilters.forEach(filter => {
         const active = filter === button;
         filter.classList.toggle("active", active);
         filter.setAttribute("aria-pressed", String(active));
       });
-
       applyVideoFilters();
     });
   });
 
   if (videoSearch) videoSearch.addEventListener("input", applyVideoFilters);
+  applyVideoFilters();
 
   // Submit custom paid-content requests through Formspree
   const customRequestForm = $("#customRequestForm");

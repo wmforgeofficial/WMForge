@@ -1445,3 +1445,82 @@ body { background:#f3f6f9; color:var(--wf-ink); }
 }
 
 }
+
+
+/* WMForge video marquee: top row moves left, bottom row moves right. */
+.videos-section #videoGrid.video-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  overflow: hidden;
+  width: 100%;
+}
+.videos-section .video-marquee-row {
+  display: flex;
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+}
+.videos-section .video-marquee-track {
+  display: flex;
+  flex: 0 0 max-content;
+  align-items: stretch;
+  gap: 15px;
+  width: max-content;
+  will-change: transform;
+  animation: wmforge-marquee-left 70s linear infinite;
+}
+.videos-section .video-marquee-row-2 .video-marquee-track {
+  animation-name: wmforge-marquee-right;
+  animation-duration: 76s;
+}
+.videos-section .video-marquee-row:has(.video-card:hover) .video-marquee-track {
+  animation-play-state: paused;
+}
+.videos-section .video-marquee-track > .video-card {
+  flex: 0 0 clamp(190px, 18vw, 240px);
+  width: clamp(190px, 18vw, 240px);
+}
+.videos-section .video-marquee-track > .video-card[hidden] {
+  display: none !important;
+}
+.videos-section .video-card-clone {
+  pointer-events: auto;
+}
+@keyframes wmforge-marquee-left {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@keyframes wmforge-marquee-right {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+/* When searching/filtering, stop the marquee and show only matching original cards in a grid. */
+.videos-section #videoGrid.video-grid.video-grid--filtered {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  align-items: stretch;
+}
+.videos-section .video-grid--filtered .video-marquee-row,
+.videos-section .video-grid--filtered .video-marquee-track {
+  display: contents;
+  animation: none !important;
+  transform: none !important;
+}
+.videos-section .video-grid--filtered .video-card-clone {
+  display: none !important;
+}
+@media (max-width: 1050px) {
+  .videos-section #videoGrid.video-grid.video-grid--filtered { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 760px) {
+  .videos-section #videoGrid.video-grid.video-grid--filtered { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .videos-section .video-marquee-track > .video-card { flex-basis: 220px; width: 220px; }
+}
+@media (max-width: 600px) {
+  .videos-section #videoGrid.video-grid.video-grid--filtered { grid-template-columns: 1fr; }
+  .videos-section .video-marquee-track > .video-card { flex-basis: min(78vw, 290px); width: min(78vw, 290px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .videos-section .video-marquee-track { animation: none !important; transform: none !important; }
+}
