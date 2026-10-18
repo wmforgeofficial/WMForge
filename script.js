@@ -63,15 +63,17 @@ const updateScrollUI = () => {
   if (progress) progress.style.width = `${Math.min(100, Math.max(0, percent))}%`;
   if (backToTop) backToTop.classList.toggle("visible", currentScrollY > 420);
 
-  if (siteHeader) {
-    if (currentScrollY <= 10) {
-      siteHeader.classList.remove("header-hidden");
-    } else if (currentScrollY > lastScrollY + 5) {
-      siteHeader.classList.add("header-hidden");
-    } else if (currentScrollY < lastScrollY - 5) {
-      siteHeader.classList.remove("header-hidden");
-    }
+  
+if (siteHeader) {
+  if (currentScrollY <= 10) {
+    siteHeader.classList.remove("header-hidden");
+  } else if (currentScrollY > lastScrollY) {
+    siteHeader.classList.add("header-hidden");
+  } else if (currentScrollY < lastScrollY) {
+    siteHeader.classList.remove("header-hidden");
   }
+}
+
 
   lastScrollY = currentScrollY;
   scrollTicking = false;
