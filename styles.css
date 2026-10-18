@@ -182,8 +182,8 @@ button{font:inherit}
 
 
 /* WMForge video library */
-.videos-section{background:linear-gradient(180deg,#06172d 0%,#041326 100%);border-bottom:1px solid var(--line);overflow:hidden;padding-left: 0;
-  padding-right: 0;}
+.videos-section{background:linear-gradient(180deg,#06172d 0%,#041326 100%);border-bottom:1px solid var(--line);overflow:hidden;
+ }
 .videos-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:34px;margin-bottom:30px}
 .videos-heading h2{font:700 clamp(32px,4vw,50px)/1.13 var(--display);letter-spacing:-1.5px;margin:0;max-width:850px}
 .videos-heading h2 span{color:var(--orange)}
