@@ -1612,3 +1612,38 @@ body { background:#f3f6f9; color:var(--wf-ink); }
   -webkit-backdrop-filter: blur(8px);
 }
 
+/* WMForge mobile menu — improve button contrast */
+@media (max-width: 760px) {
+  .menu-toggle {
+    background: #102b4c !important;
+    border: 1px solid #ff7900 !important;
+    border-radius: 7px !important;
+    color: #ffffff !important;
+  }
+
+  .menu-toggle span {
+    background: #ffffff !important;
+  }
+
+  .main-nav {
+    background: #102b4c !important;
+  }
+
+  .main-nav > a:not(.nav-button) {
+    color: #ffffff !important;
+    background: transparent !important;
+  }
+
+  .main-nav .nav-button {
+    background: #ff7900 !important;
+    color: #102b4c !important;
+    border: 1px solid #ff7900 !important;
+    border-radius: 7px !important;
+  }
+
+  .main-nav .nav-button span {
+    color: #102b4c !important;
+  }
+}
+
+
