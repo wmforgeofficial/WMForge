@@ -204,7 +204,7 @@
       playlistUrl.search = new URLSearchParams({
         part: "snippet,contentDetails",
         playlistId: uploadsPlaylistId,
-        maxResults: "50",
+        maxResults: "15",
         key: YOUTUBE_API_KEY
       }).toString();
 
@@ -232,11 +232,11 @@
 
         // Use the highest-quality thumbnail YouTube provides.
         const thumbnail =
-          thumbnails.maxres?.url ||
-          thumbnails.standard?.url ||
-          thumbnails.high?.url ||
-          thumbnails.medium?.url ||
-          thumbnails.default?.url ||
+            thumbnails.high?.url ||
+            thumbnails.medium?.url ||
+            thumbnails.standard?.url ||
+            thumbnails.maxres?.url ||
+            thumbnails.default?.url ||
           `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
 
         const videoUrl =
