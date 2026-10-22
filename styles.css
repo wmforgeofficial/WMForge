@@ -1645,5 +1645,14 @@ body { background:#f3f6f9; color:var(--wf-ink); }
     color: #102b4c !important;
   }
 }
+/* Fix: keep YouTube thumbnails visible */
+.videos-section .video-thumb {
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
 
+.videos-section .video-thumb::before {
+  content: none !important;
+}
 
