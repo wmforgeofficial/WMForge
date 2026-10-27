@@ -1673,9 +1673,8 @@ body { background:#f3f6f9; color:var(--wf-ink); }
 .wmforge-ai-heading{display:flex;flex:1;min-width:0;flex-direction:column;gap:3px;}
 .wmforge-ai-heading strong{font-size:14px;line-height:1.25;color:#fff;}
 .wmforge-ai-heading span{font-size:11px;color:#a9c0d9;}
-.wmforge-ai-iconbtn{display:grid;place-items:center;flex:0 0 38px;width:38px;height:38px;border:1px solid rgba(142,180,218,.28);border-radius:10px;background:rgba(255,255,255,.055);color:#eaf4ff;font-size:24px;line-height:1;cursor:pointer;transition:background .2s,border-color .2s,color .2s,transform .2s;}
-.wmforge-ai-iconbtn:hover{border-color:#ff7900;background:rgba(255,121,0,.12);color:#ffad36;transform:translateY(-1px);}
-.wmforge-ai-notice:empty{display:none;}
+.wmforge-ai-iconbtn{display:grid;place-items:center;flex:0 0 30px;width:30px;height:30px;border:1px solid rgba(142,180,218,.22);border-radius:8px;background:rgba(255,255,255,.04);color:#eaf4ff;font-size:20px;cursor:pointer;}
+.wmforge-ai-iconbtn:hover{border-color:#ff7900;color:#ffad36;}
 .wmforge-ai-messages{flex:1;overflow:auto;padding:18px 15px 14px;scroll-behavior:smooth;}
 .wmforge-ai-welcome .wmforge-ai-eyebrow{font-size:9px;letter-spacing:1.6px;font-weight:800;color:#ffad36;}
 .wmforge-ai-welcome h3{margin:7px 0 5px;color:#fff;font:700 22px/1.2 var(--display, sans-serif);letter-spacing:-.6px;}

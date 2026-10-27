@@ -45,7 +45,7 @@
       const answer = typeof data.answer === 'string' ? data.answer.trim() : '';
       if (!answer) throw new Error('The AI service returned an empty answer. Please try again.');
       pending.remove(); addMessage(answer, 'assistant'); history.push({role:'assistant', content:answer});
-      setNotice('', '');
+      setNotice('Answer generated. Verify configuration-specific steps in your SAP system.', 'ready');
     } catch (error) {
       pending.remove(); addMessage(error.message || 'Something went wrong. Please try again later.', 'assistant');
       history.pop(); setNotice('Could not get an answer. Please retry shortly.', 'error');
