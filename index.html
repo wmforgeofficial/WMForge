@@ -23,6 +23,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <script defer src="script.js"></script>
+  <script defer src="ai-tutor.js"></script>
 
   <style>
     /* WMForge navigation buttons and rectangular poster wordmark */
@@ -338,22 +339,6 @@
             </div>
             <a class="free-ppt-download" href="replenishment-process-sap-wm.pptx" download aria-label="Download Replenishment Process in SAP WM presentation"><span aria-hidden="true">↓</span> Download</a>
           </div>
-          <div class="free-ppt-row">
-            <div class="free-ppt-file-icon" aria-hidden="true">PPT</div>
-            <div class="free-ppt-copy">
-              <h4>Mobile Data Entry (RF) in SAP WM</h4>
-              <p>Learn about SAP WM mobile data entry, RF devices, and warehouse execution using handheld scanners.</p>
-            </div>
-            <a class="free-ppt-download" href="mobile-data-entry-sap-wm.pptx" download aria-label="Download Mobile Data Entry in SAP WM presentation"><span aria-hidden="true">↓</span> Download</a>
-          </div>
-          <div class="free-ppt-row">
-            <div class="free-ppt-file-icon" aria-hidden="true">PPT</div>
-            <div class="free-ppt-copy">
-              <h4>Shelf Life Expiration Date Configuration in SAP WM</h4>
-              <p>Step-by-step reference for SLED configuration and execution, including shelf-life checks during goods receipt.</p>
-            </div>
-            <a class="free-ppt-download" href="shelf-life-expiration-date-configuration-sap-wm.pptx" download aria-label="Download Shelf Life Expiration Date Configuration in SAP WM presentation"><span aria-hidden="true">↓</span> Download</a>
-          </div>
 
         </div>
 
@@ -418,5 +403,37 @@
   </footer>
 
  
+
+  <!-- WMForge AI Tutor: isolated floating widget; configure the backend URL in ai-tutor.js before enabling live AI. -->
+  <div class="wmforge-ai-root" id="wmforgeAiRoot">
+    <section class="wmforge-ai-panel" id="wmforgeAiPanel" role="dialog" aria-modal="false" aria-labelledby="wmforgeAiTitle" aria-hidden="true">
+      <header class="wmforge-ai-header">
+        <div class="wmforge-ai-brandmark" aria-hidden="true">WM</div>
+        <div class="wmforge-ai-heading"><strong id="wmforgeAiTitle">WMForge AI Tutor</strong><span>SAP WM learning assistant</span></div>
+        <button class="wmforge-ai-iconbtn" id="wmforgeAiNew" type="button" title="Start a new chat" aria-label="Start a new chat">↻</button>
+        <button class="wmforge-ai-iconbtn" id="wmforgeAiClose" type="button" title="Close chat" aria-label="Close chat">×</button>
+      </header>
+      <div class="wmforge-ai-messages" id="wmforgeAiMessages" aria-live="polite" aria-relevant="additions">
+        <div class="wmforge-ai-welcome"><span class="wmforge-ai-eyebrow">YOUR SAP WM COMPANION</span><h3>What are you working on?</h3><p>Ask about warehouse processes, T-codes, configuration, or troubleshooting. Share the exact error text for more focused guidance.</p></div>
+        <div class="wmforge-ai-starters" id="wmforgeAiStarters">
+          <button type="button" data-prompt="Explain the SAP WM inbound process step by step, including the key T-codes.">Explain inbound process <span>↗</span></button>
+          <button type="button" data-prompt="Explain the SAP WM outbound process step by step, including picking, TO confirmation, and PGI.">Explain outbound process <span>↗</span></button>
+          <button type="button" data-prompt="Help me troubleshoot an SAP WM error. Ask me for the relevant details first.">Troubleshoot an error <span>↗</span></button>
+          <button type="button" data-prompt="Explain a useful SAP WM T-code, what it is used for, and its practical steps.">Explain a T-code <span>↗</span></button>
+          <button type="button" data-prompt="Help me understand SAP WM configuration for storage type search and putaway. Explain it practically.">Understand configuration <span>↗</span></button>
+          <button type="button" data-prompt="Give me a practical SAP WM warehouse scenario to practise, with setup, steps, and expected results.">Give me a practice scenario <span>↗</span></button>
+        </div>
+      </div>
+      <div class="wmforge-ai-notice" id="wmforgeAiNotice" role="status">Setup required: connect a secure AI backend to enable live answers.</div>
+      <form class="wmforge-ai-composer" id="wmforgeAiForm">
+        <label class="wmforge-ai-sr-only" for="wmforgeAiInput">Your SAP WM question</label>
+        <textarea id="wmforgeAiInput" rows="1" maxlength="2000" placeholder="Ask your SAP WM question…" required></textarea>
+        <button id="wmforgeAiSend" type="submit" aria-label="Send message" title="Send message">↑</button>
+      </form>
+      <div class="wmforge-ai-footnote">AI answers may need verification against your SAP release and configuration.</div>
+    </section>
+    <button class="wmforge-ai-launcher" id="wmforgeAiLauncher" type="button" aria-expanded="false" aria-controls="wmforgeAiPanel"><span class="wmforge-ai-launcher-icon" aria-hidden="true">✦</span><span>Ask WMForge AI</span></button>
+  </div>
+
 </body>
 </html>
